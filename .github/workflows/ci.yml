@@ -43,6 +43,10 @@ jobs:
           pip install poetry
           poetry install
 
+      - name: Copiar script init-db.sh para o container do PostgreSQL
+        run: |
+          docker cp /home/esantos/Documents/ebaconline/back-end/DRF-II/init-db.sh $(docker ps -qf "ancestor=postgres:13.0-alpine"):/init-db.sh
+
       - name: Wait for PostgreSQL to be ready
         run: |
           until docker exec $(docker ps -qf "ancestor=postgres:13.0-alpine") pg_isready; do
@@ -51,7 +55,7 @@ jobs:
 
       - name: Initialize database
         run: |
-          docker exec $(docker ps -qf "ancestor=postgres:13.0-alpine") /init-db.sh
+          docker exec $(docker ps -qf "ancestor=postgres:13.0-alpine") /bin/sh -c "/init-db.sh"
 
       - name: Run Migrations
         run: |
