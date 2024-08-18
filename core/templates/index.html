@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Endpoints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #d0e1f9;
+        }
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .navbar a:hover {
+            background-color: #b0c4de;
+            border-radius: 5px;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+        }
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Django REST Framework API</h1>
+    </header>
+    <nav class="navbar">
+        <a href="{% url 'order-list' %}">Orders</a>
+        <a href="{% url 'product-list' %}">Products</a>
+        <a href="{% url 'category-list' %}">Categories</a>
+        <a href="{% url 'swagger-ui' %}">Swagger UI</a>
+        <a href="{% url 'schema' %}">OpenAPI Schema</a>
+        <a href="{% url 'obtain-token' %}">Obtain Token</a>
+        <a href="{% url 'protected-endpoint' %}">Protected Endpoint</a>
+    </nav>
+    <div class="container">
+        <ul>
+            <li><a href="{% url 'order-list' %}">Orders List</a></li>
+            <li><a href="{% url 'product-list' %}">Products List</a></li>
+            <li><a href="{% url 'category-list' %}">Categories List</a></li>
+            <li><a href="{% url 'swagger-ui' %}">Swagger UI</a></li>
+            <li><a href="{% url 'schema' %}">OpenAPI Schema</a></li>
+            <li><a href="{% url 'obtain-token' %}">Obtain Token</a></li>
+            <li><a href="{% url 'protected-endpoint' %}">Protected Endpoint</a></li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ezequias S. Santos</p>
+    </footer>
+</body>
+</html>
